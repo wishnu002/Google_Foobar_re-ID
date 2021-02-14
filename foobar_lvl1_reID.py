@@ -1,4 +1,4 @@
-primeList = [2] #set a list with the first prime number
+primeList = [2] #create a memo list initialized with the first prime number
 
 def isPrime_opt(x):
     '''
@@ -8,6 +8,7 @@ def isPrime_opt(x):
     
     isPrime = True
     
+    #create loop for checking by utilizing the memo list
     for i in primeList:
         if x%i == 0:
             isPrime = False
