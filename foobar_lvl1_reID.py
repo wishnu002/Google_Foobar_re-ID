@@ -8,7 +8,7 @@ def isPrime_opt(x):
     
     isPrime = True
     
-    #create loop for checking by utilizing the memo list
+    #create loop to check numbers by utilizing the memo list
     for i in primeList:
         if x%i == 0:
             isPrime = False
