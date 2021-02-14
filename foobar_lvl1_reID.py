@@ -1,4 +1,4 @@
-primeList = [2] #create a memo list initialized with the first prime number
+primeList = [2,3] #set a list with the first and second prime number
 
 def isPrime_opt(x):
     '''
@@ -8,7 +8,6 @@ def isPrime_opt(x):
     
     isPrime = True
     
-    #create loop to check numbers by utilizing the memo list
     for i in primeList:
         if x%i == 0:
             isPrime = False
@@ -24,13 +23,29 @@ def generatePrimeNumbers_opt(minStrLength):
     with customizable minimum string length.
     '''
     
-    strPrimeGen='2'
-    testNumber=2
+    strPrimeGen='23'
+    testNumber=3
     
-    currentLen = 1
+    currentLen = 2
     
     while currentLen < minStrLength:
-        testNumber +=1
+        '''
+        Because the only even prime number is 2,
+        only test for odd ones
+        '''
+        testNumber +=2
+        
+        '''
+        Skip the test number if it's a multiplication
+        of 5 (except 5 itself), since it can't be a
+        prime number.
+        '''
+        if (testNumber > 5) & (testNumber%5 == 0):
+             testNumber +=2
+        
+        '''
+        Do the checking and concatenate the number if it's a prime
+        '''
         if isPrime_opt(testNumber) == True:
             primeList.append(testNumber) #memoization
             addStr = str(testNumber)
